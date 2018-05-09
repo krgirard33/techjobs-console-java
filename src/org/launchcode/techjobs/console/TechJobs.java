@@ -108,7 +108,17 @@ public class TechJobs {
         return choiceKeys[choiceIdx];
     }
 
-    // Print a list of jobs
+    /** TODO: Print a list of jobs
+        It should look something like this:
+        *****
+        position type: Data Scientist / Business Intelligence
+        name: Sr. IT Analyst (Data/BI)
+        employer: Bull Moose Industries
+        location: Saint Louis
+        core competency: Statistical Analysis
+        *****
+        Or give back a message if nothing found
+     */
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         System.out.println("printJobs is not implemented yet");

@@ -84,6 +84,42 @@ public class JobData {
         return jobs;
     }
 
+    /** TODO: Create and fill in findByValue
+    1) The method that you write should not contain duplicate jobs. So, for
+    example, if a listing has position type "Web - Front End" and name
+    "Front end web dev" then searching for "web" should not include the
+    listing twice.
+    2) As with printJobs, you should write your code in a way that if a new
+    column is added to the data, your code will automatically search the
+    new column as well.
+    3) You should not write code that calls findByColumnAndValue once for
+    each column. Rather, utilize loops and collection methods as you did
+    above.
+    4) You should, on the other hand, read and understand findByColumnAndValue,
+    since your code will look similar in some ways.
+     */
+    public static ArrayList<HashMap<String, String>> findByValue(String column, String value) {
+        // load data, if not already loaded
+        loadData();
+
+        /** ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        for (HashMap<String, String> row : allJobs) {
+
+            String aValue = row.get(column); Not column, but key?
+         which would also mean we need to go through each row, so
+         we need another for loop?
+
+            if (aValue.contains(value)) {
+                jobs.add(row);
+            }
+        }
+        */
+        return jobs;
+    }
+
+    /** TODO: Make searches case insensitive
+     */
+
     /**
      * Read in data from a CSV file and store it in a list
      */
