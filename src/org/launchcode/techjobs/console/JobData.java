@@ -98,9 +98,9 @@ public class JobData {
     4) You should, on the other hand, read and understand findByColumnAndValue,
     since your code will look similar in some ways.
      */
-    public static ArrayList<HashMap<String, String>> findByValue(String column, String value) {
+    //public static ArrayList<HashMap<String, String>> findByValue(String column, String value) {
         // load data, if not already loaded
-        loadData();
+        //loadData();
 
         /** ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
         for (HashMap<String, String> row : allJobs) {
@@ -114,8 +114,8 @@ public class JobData {
             }
         }
         */
-        return jobs;
-    }
+        //return jobs;
+    //}
 
     /** TODO: Make searches case insensitive
      */
