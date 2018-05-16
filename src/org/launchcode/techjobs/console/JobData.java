@@ -98,24 +98,22 @@ public class JobData {
     4) You should, on the other hand, read and understand findByColumnAndValue,
     since your code will look similar in some ways.
      */
-    //public static ArrayList<HashMap<String, String>> findByValue(String column, String value) {
+    public static ArrayList<HashMap<String, String>> findByValue(String searchTerm) {
         // load data, if not already loaded
-        //loadData();
+        loadData();
 
-        /** ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column); Not column, but key?
-         which would also mean we need to go through each row, so
-         we need another for loop?
+            String aValue = searchTerm;
 
-            if (aValue.contains(value)) {
+            if (row.containsValue(aValue)) {
                 jobs.add(row);
             }
         }
-        */
-        //return jobs;
-    //}
+
+        return jobs;
+    }
 
     /** TODO: Make searches case insensitive
      */
