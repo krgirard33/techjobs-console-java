@@ -62,7 +62,7 @@ public class JobData {
      * with "Enterprise Holdings, Inc".
      *
      * @param column   Column that should be searched.
-     * @param value Value of teh field to search for
+     * @param value Value of the field to search for
      * @return List of all jobs matching the criteria
      */
     public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
@@ -76,7 +76,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -84,19 +84,10 @@ public class JobData {
         return jobs;
     }
 
-    /** TODO: Create and fill in findByValue
-    1) The method that you write should not contain duplicate jobs. So, for
-    example, if a listing has position type "Web - Front End" and name
-    "Front end web dev" then searching for "web" should not include the
-    listing twice.
-    2) As with printJobs, you should write your code in a way that if a new
-    column is added to the data, your code will automatically search the
-    new column as well.
-    3) You should not write code that calls findByColumnAndValue once for
-    each column. Rather, utilize loops and collection methods as you did
-    above.
-    4) You should, on the other hand, read and understand findByColumnAndValue,
-    since your code will look similar in some ways.
+    /**
+     * Search via all columns, case insensitive 
+     * @param searchTerm
+     * @return
      */
     public static ArrayList<HashMap<String, String>> findByValue(String searchTerm) {
         // load data, if not already loaded
@@ -105,18 +96,19 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = searchTerm;
+            for(String key : row.keySet()) {
+                String aValue = row.get(key);
 
-            if (row.containsValue(aValue)) {
-                jobs.add(row);
+                if (aValue.toLowerCase().contains(searchTerm.toLowerCase())) {
+                    if (!jobs.contains(row)) {
+                        jobs.add(row);
+                }
+            }
             }
         }
 
         return jobs;
     }
-
-    /** TODO: Make searches case insensitive
-     */
 
     /**
      * Read in data from a CSV file and store it in a list
